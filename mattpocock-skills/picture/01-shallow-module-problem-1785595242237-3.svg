@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 620" role="img" aria-labelledby="title desc">
+  <title id="title">浅模块的问题</title>
+  <desc id="desc">展示浅模块把太多内部步骤暴露给调用方，导致调用方需要理解细节和顺序，代码变得难理解、难修改、难测试。</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow-rose" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fb7185"/>
+    </marker>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap');
+      text {
+        font-family: 'JetBrains Mono', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        fill: #e2e8f0;
+      }
+      .title { font-size: 25px; font-weight: 700; fill: #f8fafc; }
+      .subtitle { font-size: 13px; fill: #94a3b8; }
+      .panel-title { font-size: 18px; font-weight: 700; fill: #f8fafc; }
+      .panel-subtitle { font-size: 12px; fill: #cbd5e1; }
+      .box-title { font-size: 15px; font-weight: 700; fill: #f8fafc; }
+      .box-sub { font-size: 11px; fill: #cbd5e1; }
+      .label { font-size: 13px; font-weight: 600; fill: #f8fafc; }
+      .small { font-size: 11px; fill: #94a3b8; }
+      .tiny { font-size: 10px; fill: #94a3b8; }
+      .warn { font-size: 12px; font-weight: 700; fill: #fecdd3; }
+    </style>
+  </defs>
+
+  <rect width="980" height="620" fill="#0f172a"/>
+  <rect width="980" height="620" fill="url(#grid)"/>
+
+  <text x="48" y="56" class="title">浅模块长什么样？</text>
+  <text x="48" y="82" class="subtitle">模块被拆出来了，但调用方仍然要知道太多内部细节。</text>
+
+  <rect x="72" y="126" width="836" height="420" rx="14" fill="rgba(136,19,55,0.18)" stroke="#fb7185" stroke-width="1.5"/>
+  <text x="490" y="164" class="panel-title" text-anchor="middle">Before: 浅模块</text>
+  <text x="490" y="187" class="panel-subtitle" text-anchor="middle">调用方必须理解细节、顺序和补救方式</text>
+
+  <g transform="translate(136,228)">
+    <rect x="0" y="0" width="300" height="72" rx="10" fill="#0f172a"/>
+    <rect x="0" y="0" width="300" height="72" rx="10" fill="rgba(15,23,42,0.88)" stroke="#fb7185" stroke-width="1.4"/>
+    <text x="22" y="28" class="label">调用方 A / B / C</text>
+    <text x="22" y="50" class="small">每个调用方都要自己拼流程</text>
+
+    <path d="M 150 74 L 150 122" fill="none" stroke="#fb7185" stroke-width="1.7" stroke-dasharray="7 6" marker-end="url(#arrow-rose)"/>
+
+    <rect x="0" y="124" width="300" height="84" rx="10" fill="#0f172a"/>
+    <rect x="0" y="124" width="300" height="84" rx="10" fill="rgba(136,19,55,0.35)" stroke="#fb7185" stroke-width="1.5"/>
+    <text x="150" y="156" class="box-title" text-anchor="middle">暴露太多步骤</text>
+    <text x="150" y="180" class="box-sub" text-anchor="middle">校验 / 解析 / 保存 / 通知 / 重试</text>
+    <text x="150" y="200" class="tiny" text-anchor="middle">调用方自己安排顺序</text>
+  </g>
+
+  <g transform="translate(520,228)">
+    <rect x="0" y="0" width="300" height="148" rx="12" fill="#0f172a"/>
+    <rect x="0" y="0" width="300" height="148" rx="12" fill="rgba(30,41,59,0.72)" stroke="#94a3b8" stroke-width="1.3"/>
+    <text x="150" y="32" class="box-title" text-anchor="middle">散在各处的内部细节</text>
+
+    <rect x="34" y="56" width="104" height="42" rx="7" fill="rgba(76,29,149,0.38)" stroke="#a78bfa" stroke-width="1.2"/>
+    <text x="86" y="83" class="box-sub" text-anchor="middle">外部依赖</text>
+    <rect x="162" y="56" width="104" height="42" rx="7" fill="rgba(8,51,68,0.42)" stroke="#22d3ee" stroke-width="1.2"/>
+    <text x="214" y="83" class="box-sub" text-anchor="middle">流程</text>
+    <rect x="34" y="114" width="232" height="18" rx="4" fill="rgba(251,113,133,0.2)" stroke="#fb7185" stroke-width="1"/>
+    <text x="150" y="127" class="tiny" text-anchor="middle">细节漏到模块边界外</text>
+
+    <rect x="0" y="202" width="300" height="64" rx="10" fill="#0f172a"/>
+    <rect x="0" y="202" width="300" height="64" rx="10" fill="rgba(136,19,55,0.35)" stroke="#fb7185" stroke-width="1.3"/>
+    <text x="20" y="230" class="warn">结果：难理解，难修改，难测试</text>
+    <text x="20" y="252" class="tiny">理解一个功能时，需要打开多个文件拼流程</text>
+  </g>
+
+  <text x="490" y="584" fill="#94a3b8" font-size="11" text-anchor="middle">浅模块的问题不是代码少，而是没有替调用方收住复杂细节。</text>
+</svg>
