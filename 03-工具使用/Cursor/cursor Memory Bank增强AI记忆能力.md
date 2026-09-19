@@ -1,3 +1,6 @@
+> **状态：已过时（历史笔记）**  
+> Cursor Memory Bank 是社区早期用外部 Markdown 维持跨会话记忆的做法。现行替代：Cursor Memories / Rules、项目级 `AGENTS.md`，以及 `04-工程实践/Harness` 里讨论的跨会话连续性。下面正文仅作历史参考，勿当现行配置指南。
+
 Title: 如何使用Cursor Memory Bank增强AI助手的记忆能力？ - Cursor 高频问答
 
 

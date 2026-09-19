@@ -1,6 +1,7 @@
 # OpenSpec 学习指南
 
-> 适合技术分享和团队学习的完整教程
+> 适合技术分享和团队学习的完整教程。  
+> 速查请看同目录 `OpenSpec-Workflow-Guide.md`；个人实践问答见 `openspec工具使用.md`。
 
 ## 目录
 

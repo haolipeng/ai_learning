@@ -1,5 +1,7 @@
 # OpenSpec 工作流程指南
 
+> **速查文档。** 完整教程见同目录 `openspec-learning-guide.md`；个人问答见 `openspec工具使用.md`。会话导出的 `OPENSPEC_*.txt` 已清理，避免与本文重复。
+
 > 💡 **快速参考**：本文档是 OpenSpec 工作流程的中文说明，方便在使用 OpenSpec 工具时快速查阅。
 
 ---

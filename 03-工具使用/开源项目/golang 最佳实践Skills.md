@@ -1,1 +1,0 @@
-https://github.com/samber/cc-skills-golang
